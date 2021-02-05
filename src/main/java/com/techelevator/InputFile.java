@@ -11,7 +11,9 @@ import java.util.Scanner;
 
 public class InputFile {
 	public static void main(String[] args) {
-
+		
+		
+		
 		
 	}
 	
@@ -35,30 +37,33 @@ public class InputFile {
 	
 	
 	
-		public Map<String, Item> mapOfItems() { // takes the list of items, splits it and returns information.
+		public Map<String, Item> mapOfItems() { // takes the list of items, splits it and returns information in a map.
 			HashMap<String, Item> itemMap = new HashMap<>();
 			for (String items : listOfAllItems()) {
 				String[] splitItems = items.split("\\|");
 				String slot = splitItems[0];
 				String type = splitItems[3];
 					if(splitItems[3].equals("Chip")) {
-						Item chips = new Chips(splitItems[1], new BigDecimal(splitItems[2]));
+						Chips chips = new Chips(splitItems[0], splitItems[1], new BigDecimal(splitItems[2]));
 					} 
 					else if(splitItems[3].equals("Candy")) {
-						Item candies = new Candy(splitItems[1], new BigDecimal(splitItems[2]));
+						Candy candies = new Candy(splitItems[0], splitItems[1], new BigDecimal(splitItems[2]));
 					}		
 					else if(splitItems[3].equals("Drink")) {
-						Item drinks = new Drinks(splitItems[1], new BigDecimal(splitItems[2]));
+						Drinks drinks = new Drinks(splitItems[0], splitItems[1], new BigDecimal(splitItems[2]));
 					} 
 					else if(splitItems[3].equals("Gum")) {
-						Item gum = new Gum(splitItems[1], new BigDecimal(splitItems[2]));
+						Gum gum = new Gum(splitItems[0], splitItems[1], new BigDecimal(splitItems[2]));
+						System.out.println(gum);
 					}
 				}
+			
 				return itemMap;
 			}
+		
 	  }
 
 
 	
 
-}
+
