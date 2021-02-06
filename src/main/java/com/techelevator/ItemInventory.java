@@ -4,29 +4,21 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.math.BigDecimal;
 import java.util.LinkedHashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 public class ItemInventory {
-	private int quantity = 5;
+	public Map<String, Item> stock;
 	
-	public int decreaseQuantity() {
-		this.quantity = quantity - 1;
-		return quantity;
+	public Map<String, Item> getStock() {
+		return stock;
 	}
+
 	
-	public String getQuantity() {
-		if(quantity == 0) {
-			return "Sold Out :(";
-		}
-		return String.valueOf(quantity);
-	}
-	
-	
-	
-	
+
 	public ItemInventory() {
 
-	LinkedHashMap<String, Item> stock = new LinkedHashMap<>();
+	stock = new LinkedHashMap<String, Item>();
 	String path = "vendingmachine.csv";
 	File inputFile = new File(path);
 	try(Scanner scanner = new Scanner(inputFile)){
