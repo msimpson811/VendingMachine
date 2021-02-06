@@ -1,5 +1,8 @@
 package com.techelevator;
 
+<<<<<<< HEAD
+public class Item {
+=======
 import java.math.BigDecimal;
 import java.util.Map;
 
@@ -38,6 +41,7 @@ public class Item {
 		return price;
 	}
 
+>>>>>>> 6f969636c160e98f70a5c3d839037d8ce1d834b5
 
 	
 	
