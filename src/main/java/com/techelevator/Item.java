@@ -1,7 +1,6 @@
 package com.techelevator;
-
 import java.math.BigDecimal;
-import java.util.Map;
+
 
 public class Item {
 	private String name;
@@ -11,6 +10,7 @@ public class Item {
 	private BigDecimal price;
 	private int quantity = 5;
 	private String sound;
+
 	
 	public int decreaseQuantity() {
 		quantity = quantity -1;
@@ -19,6 +19,7 @@ public class Item {
 	
 	public int getQuantity() {
 		return quantity;
+		
 	}
 
 
@@ -39,6 +40,7 @@ public class Item {
 		return price;
 	}
 
+
     public String getSlot() {
 		return slot;
 	}
@@ -47,5 +49,6 @@ public class Item {
 		return sound;
 		
 	}
+
 	
 }
