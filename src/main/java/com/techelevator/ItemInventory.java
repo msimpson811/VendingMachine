@@ -27,16 +27,16 @@ public class ItemInventory {
 			String[] info = currentLine.split("\\|");
 			String slot = info[0];
 			if (info[3].contains("Chip")) {
-				Chips chip = new Chips(info[1], new BigDecimal(info[2]));
+				Chips chip = new Chips(info[0], info[1], new BigDecimal(info[2]));
 				stock.put(slot, chip);
 			} else if (info[3].contains("Drink")) {
-				Drinks drink = new Drinks(info[1], new BigDecimal(info[2]));
+				Drinks drink = new Drinks(info[0], info[1], new BigDecimal(info[2]));
 				stock.put(slot, drink);
 			} else if (info[3].contains("Gum")) {
-				Gum gum = new Gum(info[1], new BigDecimal(info[2]));
+				Gum gum = new Gum(info[0], info[1], new BigDecimal(info[2]));
 				stock.put(slot, gum);
 			} else if (info[3].contains("Candy")) {
-				Candy candy = new Candy(info[1], new BigDecimal(info[2]));
+				Candy candy = new Candy(info[0], info[1], new BigDecimal(info[2]));
 				stock.put(slot, candy);
 			} else {
 				System.out.println("Error");
@@ -45,11 +45,8 @@ public class ItemInventory {
 	} catch (FileNotFoundException e) {
 		e.printStackTrace();
 	}
-	
-	
-	 {
 		
-	}
+	
 }
 
 	
