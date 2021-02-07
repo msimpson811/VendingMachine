@@ -34,8 +34,8 @@ public class VendingMachineUser {
 	
 	
 	if (inputNum == 1) {
-		System.out.println("****THIS WILL DISPLAY ITEMS****");
-		// inventory method
+
+		
 	}
 	if (inputNum == 2) {
 	purchaseMenu();
