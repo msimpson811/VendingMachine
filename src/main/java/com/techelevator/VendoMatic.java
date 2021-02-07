@@ -7,9 +7,12 @@ public class VendoMatic {
 	
 		
 	    
-       VendingMachineUser vending = new VendingMachineUser();
-       vending.startMenu();
-        
+      VendingMachineUser vending = new VendingMachineUser();
+      vending.startMenu();
+      
+      
+       
+       
        
 	}
 }

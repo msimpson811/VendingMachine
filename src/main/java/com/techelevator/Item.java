@@ -4,8 +4,12 @@ import java.math.BigDecimal;
 
 public class Item {
 	private String name;
+	
+
+	private String slot;
 	private BigDecimal price;
 	private int quantity = 5;
+	private String sound;
 
 	
 	public int decreaseQuantity() {
@@ -13,19 +17,16 @@ public class Item {
 		return quantity;
 	}
 	
-	public String getQuantity() {
-		if (quantity == 0) {
-			return "Sorry Item is sold out.";
-		}
-	
-		return String.valueOf(quantity);
+	public int getQuantity() {
+		return quantity;
 	}
 
 
 
-	public Item(String name, BigDecimal price) {
+	public Item(String slot, String name, BigDecimal price) {
 		this.name = name;
 		this.price = price;
+		this.slot = slot;
 	}
 	
 	
@@ -38,6 +39,15 @@ public class Item {
 		return price;
 	}
 
-	
+
+    public String getSlot() {
+		return slot;
+	}
+   
+	public String getSound() {
+		return sound;
+		
+	}
+
 	
 }

@@ -1,5 +1,7 @@
 package com.techelevator;
 
+import java.io.IOException;
+import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.util.Scanner;
 
@@ -7,14 +9,13 @@ public class VendingMachineUser {
     
 	Scanner scan = new Scanner(System.in);
 	
-
+	VendingMachine vendor = new VendingMachine();
 	
 	public VendingMachineUser() {
 	}
 	
-	// method for inventory
-	// method for purchase
-	// method for finish transatcion
+	
+	
 	
 
 	public void startMenu(){
@@ -35,7 +36,8 @@ public class VendingMachineUser {
 	
 	if (inputNum == 1) {
 
-		
+		displayInventory();
+
 	}
 	if (inputNum == 2) {
 	purchaseMenu();
@@ -61,6 +63,18 @@ public class VendingMachineUser {
 }
 	}
 	
+	public void displayInventory() {
+        VendingMachine vend = new VendingMachine(); 
+		
+		
+		for(String k : vend.getItems().getStock().keySet()) {
+			Item i = vend.getItems().getStock().get(k);
+			System.out.println(i.getSlot() + " " + i.getName() + " $" + i.getPrice() + " Quantity: " + i.getQuantity());
+			
+			
+		}
+	
+	}
 	
 	public void mainMenu() { 
        
@@ -89,6 +103,7 @@ public class VendingMachineUser {
 		 double moneyNum = 0;
 		 String money;
 		 
+		
 		 
 		do{
 	    	totalMoney += moneyNum;
@@ -97,7 +112,50 @@ public class VendingMachineUser {
 	      	money = scan.nextLine();
 			moneyNum = Double.parseDouble(money);  
 	    	} while(moneyNum >= 1 );
+		    
 		    DecimalFormat df2 = new DecimalFormat("#.00");
+		    
     	    System.out.println("\nCurrent Money Provided $" + df2.format(totalMoney));
-		}
-}
+    	    BigDecimal total = new BigDecimal(totalMoney);
+    	    purchaseItem(total);
+    	   
+    	    }
+	
+	 public void purchaseItem(BigDecimal total) {
+		 String itemSelect = "";
+		 displayInventory();
+		 int quantity = 0;
+		
+		 
+		 System.out.print("\nPlease Select an Item: ");
+		 
+		 itemSelect = scan.nextLine();
+		 vendor.getItems().getStock().get(itemSelect).getPrice();
+		 quantity = vendor.getItems().getStock().get(itemSelect).getQuantity();
+		 
+		
+		 if (quantity ==0){
+			 System.out.println("SOLD OUT - Please Choose Another Item.");
+		 }
+		 else if (quantity >= 1){
+		 vendor.getItems().getStock().get(itemSelect).decreaseQuantity();
+		 System.out.println("Qauntity remains :" + vendor.getItems().getStock().get(itemSelect).getQuantity());
+	     
+		 BigDecimal balance = total.subtract(vendor.getItems().getStock().get("A1").getPrice());
+ 	     System.out.println("balance is " + balance);
+ 	     
+ 	     } 
+		 
+		
+		 
+		
+		
+	}
+	 
+	 public void finishTransaction(BigDecimal balance) {
+		 
+	 }
+
+}	
+	
+    

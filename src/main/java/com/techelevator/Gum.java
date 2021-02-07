@@ -3,10 +3,24 @@ package com.techelevator;
 import java.math.BigDecimal;
 
 public class Gum extends Item {
-
-	public Gum(String name, BigDecimal price) {
-		super(name, price);
-
+	
+	String sound;
+	
+	
+	public Gum(String slot, String name, BigDecimal price) {
+		
+		super(slot, name, price);
+		
+	
 	}
 
+@Override
+	public String getSound() {
+		
+		return "Gum sound";
+	}
+
+	
+
+   
 }
