@@ -113,7 +113,7 @@ public class VendingMachineUser {
 		    
 		    DecimalFormat df2 = new DecimalFormat("#.00");
 		    
-    	    System.out.println("\nCurrent Money Provided $" + df2.format(totalMoney));
+    	    System.out.println("\nCurrent Money Provided $" + df2.format(totalMoney) + "\n");
     	    BigDecimal total = new BigDecimal(totalMoney);
     	    purchaseItem(total);
     	   
@@ -123,11 +123,13 @@ public class VendingMachineUser {
 		 String itemSelect = "";
 		 displayInventory();
 		 int quantity = 0;
-		
+		 BigDecimal balance = null;
+		 String select;
 		 
 		 System.out.print("\nPlease Select an Item: ");
 		 
 		 itemSelect = scan.nextLine();
+		 
 		 vendor.getItems().getStock().get(itemSelect).getPrice();
 		 quantity = vendor.getItems().getStock().get(itemSelect).getQuantity();
 		 
@@ -139,19 +141,41 @@ public class VendingMachineUser {
 		 vendor.getItems().getStock().get(itemSelect).decreaseQuantity();
 		 System.out.println("Qauntity remains :" + vendor.getItems().getStock().get(itemSelect).getQuantity());
 	     
-		 BigDecimal balance = total.subtract(vendor.getItems().getStock().get("A1").getPrice());
- 	     System.out.println("balance is " + balance);
+		 balance = total.subtract(vendor.getItems().getStock().get("A1").getPrice());
+ 	    
+ 	     
  	     
  	     } 
-		 
-		
-		 
+		 finishTransaction(balance);
 		
 		
 	}
 	 
 	 public void finishTransaction(BigDecimal balance) {
+		  
+		  double totalAmt = balance.doubleValue();
 		 
+		  
+		  double quarter = 0.25;
+	      double nickel = 0.05;
+	      double dime = 0.10;
+	      
+	     
+	      double changeDue = ( (double)((int) Math.round((totalAmt)*100)) / 100.0 );
+	      double modQuarters = ( (double)((int) Math.round((changeDue % quarter)*100)) / 100.0 );
+	      double modDimes = ( (double)((int) Math.round((modQuarters % dime)*100)) / 100.0 );
+	      double modNickels = ( (double)((int) Math.round((modQuarters % nickel)*100)) / 100.0 );
+	      
+	      
+	      int numQuarters = (int)((changeDue - modQuarters) / (quarter));
+	      int numDimes = (int)((modQuarters - modDimes) / (dime));
+	      int numNickels = (int)((modDimes - modNickels) / (nickel));
+	      
+	      System.out.println("\nYou Change is :$" + changeDue);
+	      System.out.println("Number of Quarters:  " + numQuarters);
+	      System.out.println("Number of Dimes: : " + numDimes);
+	      System.out.println("Number of Nickels: " + numNickels);
+   		   
 	 }
 
 }	

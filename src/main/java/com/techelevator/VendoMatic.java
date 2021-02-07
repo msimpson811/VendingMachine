@@ -10,8 +10,8 @@ public class VendoMatic {
       VendingMachineUser vending = new VendingMachineUser();
       vending.startMenu();
       
-      
-       
+        
+    		   
        
        
 	}
