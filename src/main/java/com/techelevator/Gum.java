@@ -17,7 +17,7 @@ public class Gum extends Item {
 @Override
 	public String getSound() {
 		
-		return "Gum sound";
+		return "Chew Chew, Yum!!!!";
 	}
 
 	

@@ -9,5 +9,10 @@ public class Candy extends Item{
 		 
 
 	}
+	@Override
+	public String getSound() {
+		
+		return "Munch Munch, Yum!!!!";
+	}
 
 }

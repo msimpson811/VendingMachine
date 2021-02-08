@@ -9,4 +9,10 @@ public class Drinks extends Item{
 		
 	}
 
+
+@Override
+public String getSound() {
+	
+	return "Glug Glug, Yum!!!!";
+}
 }
