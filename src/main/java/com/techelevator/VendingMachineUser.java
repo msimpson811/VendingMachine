@@ -99,6 +99,8 @@ public class VendingMachineUser {
 	}
 	
 	public void purchaseItem(BigDecimal total) {
+		BigDecimal balance;
+		String itemSelect = "";
 		displayInventory();
 		int quantity = 0;
         
@@ -122,6 +124,7 @@ public class VendingMachineUser {
 		
 		} catch (Exception e) {
 			System.out.println("Thats not a valid input");
+		}	
 		}
         System.out.println("\nYour Balance: $" + balance);
         System.out.print("\nAnother Purchase?? (Y/N)" );
