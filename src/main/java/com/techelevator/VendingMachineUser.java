@@ -99,7 +99,7 @@ public class VendingMachineUser {
 	}
 	
 	public void purchaseItem(BigDecimal total) {
-		BigDecimal balance;
+		BigDecimal balance = null;
 		String itemSelect = "";
 		displayInventory();
 		int quantity = 0;
@@ -125,10 +125,10 @@ public class VendingMachineUser {
 		} catch (Exception e) {
 			System.out.println("Thats not a valid input");
 		}	
-		}
-        System.out.println("\nYour Balance: $" + balance);
-        System.out.print("\nAnother Purchase?? (Y/N)" );
-        try{    
+	
+	 System.out.println("\nYour Balance: $" + balance);
+     System.out.print("\nAnother Purchase?? (Y/N)" );
+        try{   
         	String anotherPurchase = scan.nextLine();
         
         		if (anotherPurchase.equalsIgnoreCase("Y")) {
@@ -140,7 +140,7 @@ public class VendingMachineUser {
         }catch (Exception e) {
         System.out.println("Thats not a valid input");
 		} 
-	}
+}
         
 	public void finishTransaction(BigDecimal balance) {
 
