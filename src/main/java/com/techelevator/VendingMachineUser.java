@@ -107,9 +107,11 @@ public class VendingMachineUser {
 		purchaseItem(total);
 
 	}
-	BigDecimal balance;
-	String itemSelect = "";
+	
+	
 	public void purchaseItem(BigDecimal total) {
+		BigDecimal balance;
+		String itemSelect = "";
 		displayInventory();
 		int quantity = 0;
 
@@ -124,16 +126,15 @@ public class VendingMachineUser {
 				System.out.println("SOLD OUT - Please Choose Another Item.");
 			} else if (quantity >= 1) {
 				vendor.getItems().getStock().get(itemSelect).decreaseQuantity();
-				System.out.println("Qauntity remains :" + vendor.getItems().getStock().get(itemSelect).getQuantity());
-
+				System.out.println("Qauntity remains : " + vendor.getItems().getStock().get(itemSelect).getQuantity());
 				balance = total.subtract(vendor.getItems().getStock().get(itemSelect).getPrice());
 				System.out.println("Balance is " + balance);
 			}
 
 		} catch (Exception e) {
 			System.out.println("Thats not a valid input");
+		}	
 		}
-	}
 
 	public void finishTransaction(BigDecimal balance) {
 
